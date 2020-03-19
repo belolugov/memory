@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Free Online Memory Game. Play now online</title>
+	<meta name="Description" content="Best pexeso game, matchmatch game, matchpairs game, concentration game. Play instantly in the browser for free." />
+  <meta name="KeyWords" content="pexeso, matchmatch, matchpairs, concentration, brain training, memory game, memory training, free game online, PC, Javascript Game" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" href="image/brain.png" />
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/a20fe31fcd.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="newGame()">
+	<div class="container menu">
+		<select class="custom-select mr-sm-2 game-size" id="gameSize" onchange="newGame()">
+			<option value="6 X 6">6 X 6</option>
+			<option value="6 X 8" selected>6 X 8</option>
+			<option value="6 X 10">6 X 10</option>
+		</select>
+		<select class="custom-select mr-sm-2 image-set" id="imageSet" onchange="newGame()">
+			<option value="Brand logos" selected>Logos</option>
+			<option value="Kids theme">Kids</option>
+			<option value="Faces">People</option>
+		</select>
+		<button type="button" class="btn btn-default btn-lg" onclick="newGame()">
+			<i class="fas fa-redo fa-lg"></i>
+		</button>
+		<button class="btn lg preview" id="preview" onclick="preview()">
+			<i class="far fa-eye fa-2x"></i>
+		</button>
+		<div id='timer' class='timer'>
+			<span class='time-cell' id='mins'>00</span>:<span class='time-cell' id='seconds'>00</span>
+		</div>
+	</div>
+	<div class="container field" id="field">
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+<div class="pics" id="pics">
+
+</div>
+
+</html>

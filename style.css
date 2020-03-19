@@ -1,0 +1,60 @@
+.field {
+  margin-top: 2%;
+  width: 65%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.col {
+  padding-top: 10%;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: #b4ddf7;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.col:hover {
+  background-color: #4682B4;
+}
+
+.menu {
+  border-radius: 4px;
+  margin-top: 2%;
+  width: 65%;
+
+}
+
+.game-size {
+  width: 17%;
+}
+
+.image-set {
+  width: 30%;
+}
+
+.timer {
+  font-size: x-large;
+  float: right;
+}
+
+.pics {
+  position: fixed;
+  top: 0;
+  width: 100px;
+  height: 10px;
+  visibility: hidden;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: #f1f8ff;
+}
