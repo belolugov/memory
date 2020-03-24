@@ -12,6 +12,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/a20fe31fcd.js" crossorigin="anonymous"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43584767-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-43584767-3');
+</script>
+
 </head>
 
 <body onload="newGame()">
@@ -22,14 +32,14 @@
 			<option value="6 X 10">6 X 10</option>
 		</select>
 		<select class="custom-select mr-sm-2 image-set" id="imageSet" onchange="newGame()">
-			<option value="Brand logos" selected>Logos</option>
+			<option value="Brand logos">Logos</option>
 			<option value="Kids theme">Kids</option>
-			<option value="Faces">People</option>
+			<option value="Faces" selected>People</option>
 		</select>
-		<button type="button" class="btn btn-default btn-lg" onclick="newGame()">
+		<button type="button" class="btn btn-default btn-lg" data-toggle="tooltip" data-placement="bottom" title="replay" onclick="newGame()">
 			<i class="fas fa-redo fa-lg"></i>
 		</button>
-		<button class="btn lg preview" id="preview" onclick="preview()">
+		<button class="btn lg preview" id="preview" data-toggle="tooltip" data-placement="bottom" title="preview" onclick="preview()">
 			<i class="far fa-eye fa-2x"></i>
 		</button>
 		<div id='timer' class='timer'>
@@ -38,12 +48,11 @@
 	</div>
 	<div class="container field" id="field">
 	</div>
-
+	<div class="pics" id="pics">
+	</div>
 	<script type="text/javascript" src="script.js"></script>
 </body>
 
-<div class="pics" id="pics">
 
-</div>
 
 </html>

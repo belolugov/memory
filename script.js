@@ -9,7 +9,7 @@ var tempCell_1;
 var rightGuess = 0;
 var clickTotal = 0;
 var previewNum = 0;
-var rightGuessArr = ['0','field'];
+var rightGuessArr = ['0', 'field'];
 var width;
 var height;
 var numberImg;
@@ -32,13 +32,13 @@ function resetGame() {
   min = 0;
   clickTotal = 0;
   previewNum = 0;
-  rightGuessArr = ['0','field'];
+  rightGuessArr = ['0', 'field'];
   gameArray = [];
   gamePlay = true;
   document.getElementById('field').innerHTML = '';
   document.getElementById('mins').innerHTML = '00';
   document.getElementById('seconds').innerHTML = '00';
-  document.getElementById('preview').disabled = false;
+  document.getElementById('preview').style.color = 'black';
   field.style.backgroundImage = 'none';
   if (timeSec) window.clearInterval(timeSec);
 }
@@ -117,8 +117,8 @@ function getRandomXY() {
 function gameClick() {
   if (gamePlay) {
     if (clickTotal == 0) timeSec = setInterval(timer, 1000);
+    document.getElementById('preview').style.color = '#a7aaad';
     ++clickTotal;
-    document.getElementById('preview').disabled = true;
     if (clickNum == 0) {
       target = event.target;
       if (rightGuessArr.includes(target.id)) {
@@ -176,8 +176,8 @@ function gameClick() {
 
 field.addEventListener('click', gameClick);
 window.oncontextmenu = (e) => {
-    e.preventDefault();
-  }
+  e.preventDefault();
+}
 
 function timer() {
   var timerMins = document.getElementById('mins');
@@ -202,36 +202,42 @@ function timer() {
 
 function preview() {
   if (clickTotal == 0 && previewNum == 0) {
-  for (var i = 0; i<height; ++i) {
-      for (var j = 0; j<width; ++j) {
-        var element = document.getElementById(String(i)+String(j));
+    for (var i = 0; i < height; ++i) {
+      for (var j = 0; j < width; ++j) {
+        var element = document.getElementById(String(i) + String(j));
         tempCell = gameArray[String(i)][String(j)];
         element.style.backgroundColor = 'white';
         element.style.backgroundImage = "url(" + imageDir + tempCell + ".png')";
       }
-  }
-  setTimeout(closePreview, 1300);
+    }
+    setTimeout(closePreview, 1300);
   }
   ++previewNum;
-  document.getElementById('preview').disabled = true;
+  document.getElementById('preview').style.color = '#a7aaad';
 }
 
 function closePreview() {
-  for (var i = 0; i<height; ++i) {
-      for (var j = 0; j<width; ++j) {
-        var element = document.getElementById(String(i)+String(j));
-        tempCell = gameArray[String(i)][String(j)];
-        element.style.backgroundImage = 'none';
-        element.style.backgroundColor = '#b4ddf7';
-      }
+  for (var i = 0; i < height; ++i) {
+    for (var j = 0; j < width; ++j) {
+      var element = document.getElementById(String(i) + String(j));
+      tempCell = gameArray[String(i)][String(j)];
+      element.style.backgroundImage = 'none';
+      element.style.backgroundColor = '#b4ddf7';
+    }
   }
 }
 
 function imageLoad(folder) {
   var hiddenpics = document.getElementById('pics');
-   for (var i = 1; i<31; ++i) {
-     var x = document.createElement('img');
-     x.src = folder + i + '.png';
-     hiddenpics.append(x);
-   }
+  for (var i = 1; i < 31; ++i) {
+    var x = document.createElement('img');
+    x.src = folder + i + '.png';
+    hiddenpics.append(x);
+  }
 }
+
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip({
+    trigger: 'hover'
+  });
+});
