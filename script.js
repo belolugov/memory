@@ -1,25 +1,26 @@
-var field = document.getElementById('field');
-var gameArray = [];
-var gamePlay = true;
-var target;
-var target_1;
-var clickNum = 0;
-var tempCell;
-var tempCell_1;
-var rightGuess = 0;
-var clickTotal = 0;
-var previewNum = 0;
-var rightGuessArr = ['0', 'field'];
-var width;
-var height;
-var numberImg;
-var imageDir;
-var clickTotal = 0;
-var sec;
-var min;
-var timeSec = null;
+const field = document.getElementById('field');
+let gameArray = [];
+let gamePlay = true;
+let target;
+let target_1;
+let clickNum = 0;
+let tempCell;
+let tempCell_1;
+let rightGuess = 0;
+let clickTotal = 0;
+let previewNum = 0;
+let rightGuessArr = ['0', 'field'];
+let width;
+let height;
+let numberImg;
+let imageDir;
+let sec;
+let min;
+let timeSec = null;
 
-
+imageLoad('kids/');
+imageLoad('logos/');
+imageLoad('faces/');
 
 function resetGame() {
   height = 0;
@@ -46,19 +47,16 @@ function resetGame() {
 function newGame() {
   resetGame();
   init();
-  imageLoad('kids/');
-  imageLoad('logos/');
-  imageLoad('faces/');
-}
+ }
 
 
 
 function init() {
-  var imageSet = document.getElementById('imageSet').value;
+  const imageSet = document.getElementById('imageSet').value;
   if (imageSet == 'Brand logos') imageDir = "'logos/";
   if (imageSet == 'Kids theme') imageDir = "'kids/";
   if (imageSet == 'Faces') imageDir = "'faces/";
-  var gameSize = document.getElementById('gameSize').value;
+  const gameSize = document.getElementById('gameSize').value;
   if (gameSize == '6 X 10') {
     height = 6;
     width = 10;
@@ -75,15 +73,15 @@ function init() {
   }
 
 
-  for (var i = 0; i < height; ++i) {
-    var gameRow = [];
-    var row = document.createElement('div');
+  for (let i = 0; i < height; ++i) {
+    const gameRow = [];
+    const row = document.createElement('div');
     row.className = 'row';
     row.setAttribute('id', '0');
     field.appendChild(row);
-    for (var j = 0; j < width; ++j) {
+    for (let j = 0; j < width; ++j) {
       gameRow[j] = 0;
-      var cell = document.createElement('div');
+      const cell = document.createElement('div');
       cell.className = 'col cell';
       if (gameSize == '6 X 10') cell.style.paddingTop = '8%';
       row.appendChild(cell);
@@ -97,9 +95,9 @@ function init() {
 }
 
 function imagePut() {
-  var imgCount = 1;
+  let imgCount = 1;
   while (imgCount < numberImg) {
-    var temp = getRandomXY();
+    const temp = getRandomXY();
     if (gameArray[temp[0]][temp[1]] == 0) {
       gameArray[temp[0]][temp[1]] = imgCount;
       ++imgCount;
@@ -108,8 +106,8 @@ function imagePut() {
 }
 
 function getRandomXY() {
-  var y = parseInt(Math.floor(Math.random() * width));
-  var x = parseInt(Math.floor(Math.random() * height));
+  const y = parseInt(Math.floor(Math.random() * width));
+  const x = parseInt(Math.floor(Math.random() * height));
   return [x, y];
 }
 
@@ -125,8 +123,8 @@ function gameClick() {
         gamePlay = true;
         return;
       }
-      var x = target.id[0];
-      var y = target.id[1];
+      const x = target.id[0];
+      const y = target.id[1];
       tempCell = gameArray[x][y];
       target.style.backgroundColor = 'white';
       target.style.backgroundImage = "url(" + imageDir + tempCell + ".png')";
@@ -180,8 +178,8 @@ window.oncontextmenu = (e) => {
 }
 
 function timer() {
-  var timerMins = document.getElementById('mins');
-  var timerSec = document.getElementById('seconds');
+  const timerMins = document.getElementById('mins');
+  const timerSec = document.getElementById('seconds');
   if (sec > 59) {
     ++min;
     sec = 0;
@@ -202,9 +200,9 @@ function timer() {
 
 function preview() {
   if (clickTotal == 0 && previewNum == 0) {
-    for (var i = 0; i < height; ++i) {
-      for (var j = 0; j < width; ++j) {
-        var element = document.getElementById(String(i) + String(j));
+    for (let i = 0; i < height; ++i) {
+      for (let j = 0; j < width; ++j) {
+        const element = document.getElementById(String(i) + String(j));
         tempCell = gameArray[String(i)][String(j)];
         element.style.backgroundColor = 'white';
         element.style.backgroundImage = "url(" + imageDir + tempCell + ".png')";
@@ -217,9 +215,9 @@ function preview() {
 }
 
 function closePreview() {
-  for (var i = 0; i < height; ++i) {
-    for (var j = 0; j < width; ++j) {
-      var element = document.getElementById(String(i) + String(j));
+  for (let i = 0; i < height; ++i) {
+    for (let j = 0; j < width; ++j) {
+      const element = document.getElementById(String(i) + String(j));
       tempCell = gameArray[String(i)][String(j)];
       element.style.backgroundImage = 'none';
       element.style.backgroundColor = '#b4ddf7';
@@ -228,9 +226,9 @@ function closePreview() {
 }
 
 function imageLoad(folder) {
-  var hiddenpics = document.getElementById('pics');
-  for (var i = 1; i < 31; ++i) {
-    var x = document.createElement('img');
+  const hiddenpics = document.getElementById('pics');
+  for (let i = 1; i < 31; ++i) {
+    const x = document.createElement('img');
     x.src = folder + i + '.png';
     hiddenpics.append(x);
   }
