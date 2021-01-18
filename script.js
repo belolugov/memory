@@ -1,26 +1,19 @@
 const field = document.getElementById('field');
 let gameArray = [];
 let gamePlay = true;
-let target;
-let target_1;
 let clickNum = 0;
-let tempCell;
-let tempCell_1;
 let rightGuess = 0;
 let clickTotal = 0;
 let previewNum = 0;
 let rightGuessArr = ['0', 'field'];
-let width;
-let height;
-let numberImg;
-let imageDir;
-let sec;
-let min;
+let width, height, numberImg, imageDir, sec, min, target, target_1, tempCell, tempCell_1;
 let timeSec = null;
 
 imageLoad('kids/');
 imageLoad('logos/');
 imageLoad('faces/');
+document.getElementById('loader').className = 'hide-loader';
+
 
 function resetGame() {
   height = 0;
@@ -49,9 +42,7 @@ function newGame() {
   init();
  }
 
-
-
-function init() {
+ function init() {
   const imageSet = document.getElementById('imageSet').value;
   if (imageSet == 'Brand logos') imageDir = "'logos/";
   if (imageSet == 'Kids theme') imageDir = "'kids/";
@@ -71,7 +62,6 @@ function init() {
     width = 8;
     numberImg = 25;
   }
-
 
   for (let i = 0; i < height; ++i) {
     const gameRow = [];
@@ -110,7 +100,6 @@ function getRandomXY() {
   const x = parseInt(Math.floor(Math.random() * height));
   return [x, y];
 }
-
 
 function gameClick() {
   if (gamePlay) {
@@ -231,7 +220,7 @@ function imageLoad(folder) {
     const x = document.createElement('img');
     x.src = folder + i + '.png';
     hiddenpics.append(x);
-  }
+   }
 }
 
 $(function() {
