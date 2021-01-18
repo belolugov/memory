@@ -12,7 +12,6 @@ let timeSec = null;
 imageLoad('kids/');
 imageLoad('logos/');
 imageLoad('faces/');
-document.getElementById('loader').className = 'hide-loader';
 
 
 function resetGame() {
@@ -221,6 +220,9 @@ function imageLoad(folder) {
     x.src = folder + i + '.png';
     hiddenpics.append(x);
    }
+  if (folder === 'faces/') {
+    document.getElementById('loader').className = 'hide-loader';
+  }
 }
 
 $(function() {
