@@ -221,7 +221,7 @@ function imageLoad(folder) {
     hiddenpics.append(x);
    }
   if (folder === 'faces/') {
-    document.getElementById('loader').className += ' hide-loader';
+    document.getElementById('loader').className = 'hide-loader';
   }
 }
 
