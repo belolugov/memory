@@ -12,7 +12,6 @@ let timeSec = null;
 imageLoad('kids/');
 imageLoad('logos/');
 imageLoad('faces/');
-hideLoader();
 
 function resetGame() {
   height = 0;
@@ -41,7 +40,8 @@ function hideLoader() {
 function newGame() {
   resetGame();
   init();
- }
+  hideLoader();
+}
 
  function init() {
   const imageSet = document.getElementById('imageSet').value;
