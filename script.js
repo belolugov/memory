@@ -12,7 +12,7 @@ let timeSec = null;
 imageLoad('kids/');
 imageLoad('logos/');
 imageLoad('faces/');
-
+hideLoader();
 
 function resetGame() {
   height = 0;
@@ -35,7 +35,9 @@ function resetGame() {
   field.style.backgroundImage = 'none';
   if (timeSec) window.clearInterval(timeSec);
 }
-
+function hideLoader() {
+  document.getElementById('loader').className = 'hide-loader';
+}
 function newGame() {
   resetGame();
   init();
@@ -220,9 +222,6 @@ function imageLoad(folder) {
     x.src = folder + i + '.png';
     hiddenpics.append(x);
    }
-  if (folder === 'faces/') {
-    document.getElementById('loader').className = 'hide-loader';
-  }
 }
 
 $(function() {
